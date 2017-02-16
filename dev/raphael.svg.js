@@ -620,8 +620,8 @@ define(["./raphael.core"], function(R) {
         $(node, {x: a.x, y: a.y});
         el._.dirty = 1;
         var bb = el._getBBox(),
-            dif = a.y - (bb.y + bb.height / 2);
-        dif && R.is(dif, "finite") && $(tspans[0], {dy: dif});
+            dif = a.y - (bb.y + bb.height * 8 / 10);
+        if (bb.height) dif && R.is(dif, "finite") && $(tspans[0], {dy: dif});
     },
     getRealNode = function (node) {
         if (node.parentNode && node.parentNode.tagName.toLowerCase() === "a") {
